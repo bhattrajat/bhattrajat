@@ -17,6 +17,7 @@ export default function Home() {
             alt="profile"
             width={150}
             height={150}
+            priority={true}
           />
           <h1 className="flex flex-col gap-1 font-bold leading-loose text-slate-800">
             Hello, I am <span className="text-2xl text-black">Rajat Bhatt</span>
