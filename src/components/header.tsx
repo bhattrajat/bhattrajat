@@ -24,13 +24,13 @@ export function Header() {
         >
           <div className="sr-only">Toggle Menu</div>
           <div
-            className={`h-0.5 w-6 -translate-y-1 bg-black transition-transform ${
-              isMenuOpen ? "translate-y-0 rotate-45" : ""
+            className={`h-1 w-6 bg-black transition-transform ${
+              isMenuOpen ? "translate-y-0.5 rotate-45" : "-translate-y-1"
             }`}
           ></div>
           <div
-            className={`h-0.5 w-6 translate-y-1 bg-black transition-transform ${
-              isMenuOpen ? "-translate-y-0.5 -rotate-45" : ""
+            className={`h-1 w-6 bg-black transition-transform ${
+              isMenuOpen ? "-translate-y-0.5 -rotate-45" : "translate-y-1"
             }`}
           ></div>
         </button>
