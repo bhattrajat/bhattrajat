@@ -10,7 +10,7 @@ export function Header() {
   }, [isMenuOpen]);
 
   return (
-    <header className="sticky top-0 z-20 flex h-12 items-center justify-between border-b-2 border-slate-300 bg-white px-4 py-6 md:p-8">
+    <header className="sticky top-0 z-20 flex h-12 items-center justify-between border-b-2 border-slate-300 bg-white px-4 py-8 md:p-8">
       <h1 className="relative z-40 text-2xl font-bold">
         <a href="/#">Rajat Bhatt</a>
       </h1>
