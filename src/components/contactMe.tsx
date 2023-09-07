@@ -52,7 +52,7 @@ export function ContactMe() {
   };
 
   return (
-    <section id="contact-me">
+    <section id="contact-me" className="lg:mx-auto lg:max-w-sm">
       <h2 className="mb-4 flex flex-col pt-16 text-center text-xl font-bold text-black">
         Contact Me
       </h2>
