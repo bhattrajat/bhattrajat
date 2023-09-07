@@ -10,7 +10,7 @@ export function Header() {
   }, [isMenuOpen]);
 
   return (
-    <header className="sticky top-0 z-20 flex h-12 items-center justify-between border-b-2 border-slate-300 bg-white p-4 md:p-8">
+    <header className="sticky top-0 z-20 flex h-12 items-center justify-between border-b-2 border-slate-300 bg-white px-4 py-6 md:p-8">
       <h1 className="relative z-40 text-2xl font-bold">
         <a href="/#">Rajat Bhatt</a>
       </h1>
@@ -25,12 +25,12 @@ export function Header() {
           <div className="sr-only">Toggle Menu</div>
           <div
             className={`h-0.5 w-6 -translate-y-1 bg-black transition-transform ${
-              isMenuOpen ? "translate-y-[5px] rotate-45" : ""
+              isMenuOpen ? "translate-y-0 rotate-45" : ""
             }`}
           ></div>
           <div
             className={`h-0.5 w-6 translate-y-1 bg-black transition-transform ${
-              isMenuOpen ? "translate-y-0 -rotate-45" : ""
+              isMenuOpen ? "-translate-y-0.5 -rotate-45" : ""
             }`}
           ></div>
         </button>
