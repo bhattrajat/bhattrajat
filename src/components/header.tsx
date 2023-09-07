@@ -36,7 +36,7 @@ export function Header() {
         </button>
         <ul
           id="primary-menu"
-          className={`fixed inset-0 z-10 flex h-screen w-screen -translate-x-full flex-col gap-4 overflow-hidden bg-white p-4 pt-16 transition-transform md:static md:h-auto md:w-auto md:translate-x-0 md:flex-row md:bg-inherit md:p-0 ${
+          className={`fixed inset-0 z-10 flex h-screen w-screen -translate-x-full flex-col gap-8 overflow-hidden bg-white p-4 pt-20 transition-transform md:static md:h-auto md:w-auto md:translate-x-0 md:flex-row md:bg-inherit md:p-0 ${
             isMenuOpen ? "translate-x-0" : ""
           }`}
         >
