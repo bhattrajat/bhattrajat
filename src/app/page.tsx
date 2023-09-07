@@ -35,7 +35,7 @@ export default function Home() {
             </a>
             <a
               type="button"
-              href="#contactme"
+              href="#contact-me"
               className="flex items-center rounded-full bg-slate-800 px-4 py-2 text-white"
             >
               Contact Me
