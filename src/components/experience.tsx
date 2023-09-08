@@ -5,15 +5,17 @@ export default function Experience() {
       className="flex flex-col items-center justify-center pt-20"
     >
       <header>
-        <h2 className="flex flex-col text-center text-slate-900">
+        <h2 className="flex flex-col text-center text-slate-900 dark:text-slate-200">
           Explore my
-          <span className="text-xl font-bold text-black">Experience</span>
+          <span className="text-xl font-bold text-black dark:text-white">
+            Experience
+          </span>
         </h2>
       </header>
       <main className="mt-4 grid gap-4 md:grid-cols-2">
-        <div className="rounded-3xl border-2 border-slate-900 p-4">
+        <div className="rounded-3xl border-2 border-slate-900 p-4 dark:border-slate-200">
           <h3 className="text-xl font-bold">Senior Software Engineer</h3>
-          <h4 className="text-lg font-semibold text-slate-800">
+          <h4 className="text-lg font-semibold text-slate-800 dark:text-slate-200">
             Bacancy Technogy
           </h4>
           <ul className="mt-2 list-inside list-disc">
@@ -44,9 +46,9 @@ export default function Experience() {
             </li>
           </ul>
         </div>
-        <div className="rounded-3xl border-2 border-slate-900 p-4">
+        <div className="rounded-3xl border-2 border-slate-900 p-4 dark:border-slate-200">
           <h3 className="text-xl font-bold">Systems Engineer</h3>
-          <h4 className="text-lg font-semibold text-slate-800">
+          <h4 className="text-lg font-semibold text-slate-800 dark:text-slate-200">
             Tata Consultancy Services
           </h4>
           <ul className="mt-2 list-inside list-disc">

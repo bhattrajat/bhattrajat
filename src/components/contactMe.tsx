@@ -51,7 +51,7 @@ export function ContactMe() {
 
   return (
     <section id="contact-me" className="lg:mx-auto lg:max-w-sm">
-      <h2 className="mb-4 flex flex-col pt-16 text-center text-xl font-bold text-black">
+      <h2 className="mb-4 flex flex-col pt-16 text-center text-xl font-bold text-black dark:text-white">
         Contact Me
       </h2>
       {!isSubmitSuccessful && (
@@ -76,7 +76,7 @@ export function ContactMe() {
             <label htmlFor="name">Name:</label>
             <input
               id="name"
-              className={`w-full rounded-2xl focus:ring-2 focus:ring-slate-900 ${
+              className={`w-full rounded-2xl focus:ring-2 focus:ring-slate-900 dark:bg-transparent dark:focus:ring-slate-200  ${
                 errors.name ? "border-red-600 focus:ring-red-600" : ""
               }`}
               type="text"
@@ -95,7 +95,7 @@ export function ContactMe() {
             <label htmlFor="email">Email:</label>
             <input
               id="email"
-              className={`w-full rounded-2xl focus:ring-2 focus:ring-slate-900 ${
+              className={`w-full rounded-2xl focus:ring-2 focus:ring-slate-900 dark:bg-transparent dark:focus:ring-slate-200 ${
                 errors.email ? "border-red-600 focus:ring-red-600" : ""
               } `}
               type="email"
@@ -117,7 +117,7 @@ export function ContactMe() {
             <label htmlFor="message">Message:</label>
             <textarea
               id="message"
-              className={`w-full rounded-2xl focus:ring-2 focus:ring-slate-900 ${
+              className={`w-full rounded-2xl focus:ring-2 focus:ring-slate-900 dark:bg-transparent dark:focus:ring-slate-200  ${
                 errors.message ? "border-red-600 focus:ring-red-600" : ""
               }`}
               rows={10}
@@ -136,7 +136,7 @@ export function ContactMe() {
             value="https://web3forms.com/success"
           />
           <button
-            className="rounded-full border-2 border-slate-900 px-4 py-2"
+            className="rounded-full border-2 border-slate-900 px-4 py-2 dark:border-slate-200"
             type="submit"
           >
             Send Message
@@ -160,10 +160,12 @@ export function ContactMe() {
             />
           </svg>
           <h3 className="py-5 text-2xl text-green-800">Success</h3>
-          <p className="text-slate-900 md:px-3">{Message}</p>
+          <p className="text-slate-900 dark:text-slate-200 md:px-3">
+            {Message}
+          </p>
           <button
             type="button"
-            className="mt-6 rounded-full border-2 border-slate-900 px-4 py-2 focus:outline-none"
+            className="mt-6 rounded-full border-2 border-slate-900 px-4 py-2 focus:outline-none dark:border-slate-200"
             onClick={() => reset()}
           >
             Send another message
@@ -192,7 +194,7 @@ export function ContactMe() {
           </h3>
           {/* <p className="text-gray-300 md:px-3">{Message}</p> */}
           <button
-            className="mt-5 rounded-full border-2 border-slate-900 px-4 py-2 focus:outline-none"
+            className="mt-5 rounded-full border-2 border-slate-900 px-4 py-2 focus:outline-none dark:border-slate-200"
             onClick={() => reset()}
           >
             Try Again

@@ -20,8 +20,11 @@ export default function Home() {
             height={150}
             priority={true}
           />
-          <h1 className="flex flex-col gap-1 font-bold leading-loose text-slate-800">
-            Hello, I am <span className="text-2xl text-black">Rajat Bhatt</span>
+          <h1 className="flex flex-col gap-1 font-bold leading-loose text-slate-800 dark:text-slate-200">
+            Hello, I am{" "}
+            <span className="text-2xl text-black dark:text-white">
+              Rajat Bhatt
+            </span>
             Full stack web developer
           </h1>
           <div className="mt-4 flex gap-4 text-sm">
@@ -65,7 +68,7 @@ export default function Home() {
               rel="noopener noreferrer"
             >
               <span className="sr-only">FrontEnd Mentor</span>
-              <SiFrontendmentor className="h-8 w-8 rounded-full bg-black p-1 font-bold text-white" />
+              <SiFrontendmentor className="h-8 w-8" />
             </a>
           </div>
         </section>

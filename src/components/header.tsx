@@ -1,5 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
+import { ThemeSwitcher } from "./themeSwitcher";
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -10,11 +11,12 @@ export function Header() {
   }, [isMenuOpen]);
 
   return (
-    <header className="sticky top-0 z-20 flex h-12 items-center justify-between border-b-2 border-slate-300 bg-white px-4 py-8 md:p-8">
+    <header className="sticky top-0 z-20 flex h-12 items-center justify-between border-b-2 border-slate-300 bg-white px-4 py-8 dark:bg-slate-900 md:p-8">
       <h1 className="relative z-40 text-2xl font-bold">
         <a href="/#">Rajat Bhatt</a>
       </h1>
-      <nav>
+      <nav className="flex items-center gap-4">
+        <ThemeSwitcher />
         <button
           type="button"
           className="relative z-40 flex flex-col md:hidden"
@@ -24,19 +26,19 @@ export function Header() {
         >
           <div className="sr-only">Toggle Menu</div>
           <div
-            className={`h-1 w-6 bg-black transition-transform ${
+            className={`h-1 w-6 bg-black transition-transform dark:bg-slate-200 ${
               isMenuOpen ? "translate-y-0.5 rotate-45" : "-translate-y-1"
             }`}
           ></div>
           <div
-            className={`h-1 w-6 bg-black transition-transform ${
+            className={`h-1 w-6 bg-black transition-transform dark:bg-slate-200 ${
               isMenuOpen ? "-translate-y-0.5 -rotate-45" : "translate-y-1"
             }`}
           ></div>
         </button>
         <ul
           id="primary-menu"
-          className={`fixed inset-0 z-10 flex h-screen w-screen -translate-x-full flex-col gap-8 overflow-hidden bg-white p-4 pt-20 transition-transform md:static md:h-auto md:w-auto md:translate-x-0 md:flex-row md:bg-inherit md:p-0 ${
+          className={`fixed inset-0 z-10 flex h-screen w-screen -translate-x-full flex-col gap-8 overflow-hidden bg-white p-4 pt-20 transition-transform dark:bg-slate-900 md:static md:h-auto md:w-auto md:translate-x-0 md:flex-row md:bg-inherit md:p-0 ${
             isMenuOpen ? "translate-x-0" : ""
           }`}
         >
