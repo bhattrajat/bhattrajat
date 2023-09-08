@@ -1,6 +1,6 @@
 "use client";
-import { FormEvent, useState } from "react";
-import { SubmitHandler, useForm, useWatch } from "react-hook-form";
+import { useState } from "react";
+import { SubmitHandler, useForm } from "react-hook-form";
 
 type Inputs = {
   name: string;
@@ -13,9 +13,7 @@ export function ContactMe() {
   const {
     register,
     handleSubmit,
-    setValue,
     reset,
-    control,
     formState: { errors, isSubmitSuccessful, isSubmitting },
   } = useForm<Inputs>({
     mode: "onTouched",

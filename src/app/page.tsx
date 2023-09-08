@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { FaLinkedin, FaGithub } from "react-icons/fa6";
+import { SiFrontendmentor } from "react-icons/si";
 import { Header } from "@/components/header";
 import Experience from "@/components/experience";
 import { Skills } from "@/components/skills";
@@ -57,6 +58,14 @@ export default function Home() {
             >
               <span className="sr-only">Linkedin</span>
               <FaLinkedin className="h-8 w-8" />
+            </a>
+            <a
+              href="https://www.frontendmentor.io/profile/bhattrajat"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <span className="sr-only">FrontEnd Mentor</span>
+              <SiFrontendmentor className="h-8 w-8 rounded-full bg-black p-1 font-bold text-white" />
             </a>
           </div>
         </section>
