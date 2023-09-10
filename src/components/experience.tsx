@@ -22,7 +22,8 @@ export default function Experience() {
             <li>
               Worked as a full stack developer in a SaaS product{" "}
               <a
-                className="border-b-2 border-slate-900"
+                className="border-b-2 border-slate-900 dark:border-slate-200"
+                target="_blank"
                 href="https://julesai.com/"
               >
                 JulesAI
