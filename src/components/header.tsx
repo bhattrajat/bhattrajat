@@ -21,7 +21,7 @@ export function Header() {
           type="button"
           className="relative z-40 flex flex-col md:hidden"
           aria-controls="primary-menu"
-          aria-expanded="false"
+          aria-expanded={isMenuOpen}
           onClick={() => setIsMenuOpen((prev) => !prev)}
         >
           <div className="sr-only">Toggle Menu</div>
