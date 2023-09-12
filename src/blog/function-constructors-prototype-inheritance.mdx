@@ -1,0 +1,80 @@
+---
+title: Function, Constructors & Prototype Inheritance
+date: 2023-09-12
+---
+
+In this post we will understand how function works behind the scenes in Javascript & how classes are just a syntactical sugar implementing prototype inheritance.
+
+
+Before classes were introduced, developers were using constructor function to create to create objects to bind data and methods.
+
+
+```js
+function Person(name, age){
+  this.name = name;
+  this.age = age;
+  this.incrementAge = function() {
+    this.age++;
+  }
+}
+```
+
+Above function will be treated as a constructor function when using with `new` keyword to create Person objects. Notice the first letter is capital letter which is just a good practice to show that this is a constructor function and it should be used with the `new` keyword
+
+```js
+//using var since I am trying to explain this using es5
+var person1 = new Person('Rajat', 26); // {name: 'Rajat', age:26, incrementAge: fn1}
+var person2 = new Person('Virat', 30); // {name: 'Virat', age:30, incrementAge: fn2}
+```
+
+This will create 2 objects using Person function constructor with their own separate data bindings using keyword `this`
+
+But you would notice that there is one problem with the constructor function which is creating a new function `incrementAge` on every object creation which is redundant and utilizing extra memory. 
+
+Wouldn't it be great if we had a way to refer a single function from the memory and use it on all the objects?
+
+The answer is **prototypes**
+
+To fix that we can use function prototype to add the method `incrementAge` there and using the prototype inheritance we can use that method on every object we create using the construction function.
+
+```js
+function Person(name, age){
+  this.name = name;
+  this.age = age;
+}
+Person.prototype.incrementAge = function() {
+  this.age++;
+}
+```
+
+This way when we call the incrementAge on person object, it would not be available in there so it will try to find it from it's prototype and if it finds this method then it will execute it
+
+This is also known as **prototype inheritance**.
+
+After ES6, we have a better syntax to implement the same thing using **class** keyword
+
+So above functionality can be implemented using class as this.
+
+```js
+class Person{
+  constructor(name, age){
+    this.name = name;
+    this.age = age;
+  }
+
+  incrementAge(){
+    this.age++;
+  }
+}
+```
+
+If you try to convert this class code to es5 you will get the converted es5 code using the prototype.
+
+This is how prototype inheritance is used behind the scenes to create Class functionality so we can use Object Oriented Pattern in a more concise and similar way to other languages like Python & Java.
+
+I hope this explanation was helpful to understand prototypes & how class works behind the scene. Please let me know if you have any suggestions/improvements for this article. 
+
+Thanks for reading 😊
+
+
+

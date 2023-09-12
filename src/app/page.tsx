@@ -9,7 +9,6 @@ import { ContactMe } from "@/components/contactMe";
 export default function Home() {
   return (
     <>
-      <Header />
       <main className="p-4 md:p-8">
         <section className="flex flex-col items-center justify-center py-20 text-center">
           <Image
