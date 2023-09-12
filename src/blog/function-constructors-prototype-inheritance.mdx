@@ -33,7 +33,7 @@ But you would notice that there is one problem with the constructor function whi
 
 Wouldn't it be great if we had a way to refer a single function from the memory and use it on all the objects?
 
-The answer is **prototypes**
+The answer is **prototypes**. All functions in javascript has special property known as `prototype` which is mostly used with the `new` operator.
 
 To fix that we can use function prototype to add the method `incrementAge` there and using the prototype inheritance we can use that method on every object we create using the construction function.
 
@@ -47,7 +47,7 @@ Person.prototype.incrementAge = function() {
 }
 ```
 
-This way when we call the incrementAge on person object, it would not be available in there so it will try to find it from it's prototype and if it finds this method then it will execute it
+This way when we call the incrementAge on person object, it would not be available in there so it will try to find it from it's prototype and if it finds this method then it will execute it. This is also known as **prototype chain**.
 
 This is also known as **prototype inheritance**.
 
