@@ -37,7 +37,7 @@ export function Header() {
   return (
     <header className="sticky top-0 z-20 flex h-12 items-center justify-between border-b-2 border-slate-300 bg-white px-4 py-8 dark:bg-slate-950 md:p-8">
       <h1 className="relative z-40 text-2xl font-bold">
-        <a href="/#">Rajat Bhatt</a>
+        <Link href="/#">Rajat Bhatt</Link>
       </h1>
       <nav className="flex items-center gap-4">
         <ThemeSwitcher />
