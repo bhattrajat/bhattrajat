@@ -5,11 +5,11 @@ import { allPosts, Post } from "contentlayer/generated";
 function PostCard(post: Post) {
   return (
     <div className="mb-8">
-      <h2 className="text-xl">
+      <h3 className="text-xl">
         <Link href={post.url} className="dark:hover:text-slate-300">
           {post.title}
         </Link>
-      </h2>
+      </h3>
       <time
         dateTime={post.date}
         className="mb-2 block text-sm dark:text-slate-400"
@@ -27,9 +27,9 @@ export default function Home() {
 
   return (
     <div className="mx-auto max-w-xl px-4 py-8">
-      <h1 className="mb-8 text-center text-3xl font-bold">
+      <h2 className="mb-8 text-center text-3xl font-bold">
         Read my blog posts
-      </h1>
+      </h2>
 
       {posts.map((post, idx) => (
         <PostCard key={idx} {...post} />
