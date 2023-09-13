@@ -79,42 +79,6 @@ export function Header() {
               </Link>
             </li>
           ))}
-          {/* <li>
-            <a
-              className="border-slate-950 hover:border-b-2 dark:border-slate-50"
-              href="#experience"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Experience
-            </a>
-          </li>
-          <li>
-            <a
-              className="border-slate-950 hover:border-b-2 dark:border-slate-50"
-              href="#skills"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Skills
-            </a>
-          </li>
-          <li>
-            <a
-              className="border-slate-950 hover:border-b-2 dark:border-slate-50"
-              href="#projects"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Projects
-            </a>
-          </li>
-          <li>
-            <a
-              className="border-slate-950 hover:border-b-2 dark:border-slate-50"
-              href="#contact-me"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Contact
-            </a>
-          </li> */}
         </ul>
       </nav>
     </header>

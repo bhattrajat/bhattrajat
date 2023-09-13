@@ -21,7 +21,7 @@ const PostLayout = ({ params }: { params: { slug: string } }) => {
   const Content = getMDXComponent(post.body.code);
 
   return (
-    <article className="prose prose-slate prose-code:before:hidden prose-code:after:hidden dark:prose-invert mx-auto max-w-xl px-4 py-8 lg:max-w-2xl">
+    <article className="prose prose-slate mx-auto max-w-xl px-4 py-8 dark:prose-invert prose-code:before:hidden prose-code:after:hidden lg:max-w-2xl">
       <div className="not-prose mb-8">
         <h1 className="text-2xl font-bold">{post.title}</h1>
         <time dateTime={post.date} className="text-xs dark:text-slate-200">

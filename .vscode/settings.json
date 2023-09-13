@@ -1,5 +1,10 @@
 {
-  "cSpell.words": [
-    "contentlayer"
-  ]
+  "typescript.tsdk": "node_modules\\typescript\\lib",
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
+  "cSpell.words": ["contentlayer"],
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "eslint.rules.customizations": [{ "rule": "*", "severity": "warn" }],
+  "typescript.preferences.importModuleSpecifier": "non-relative"
 }

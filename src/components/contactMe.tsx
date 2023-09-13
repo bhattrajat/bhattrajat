@@ -3,10 +3,10 @@ import { useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 
 type Inputs = {
-  name: string;
+  access_key: string;
   email: string;
   message: string;
-  access_key: string;
+  name: string;
   subject: string;
 };
 export function ContactMe() {
@@ -31,7 +31,7 @@ export function ContactMe() {
       body: JSON.stringify(data, null, 2),
     })
       .then(async (response) => {
-        let json = await response.json();
+        const json = await response.json();
         if (json.success) {
           setIsSuccess(true);
           setMessage(json.message);
@@ -138,8 +138,9 @@ export function ContactMe() {
           <button
             className="rounded-full border-2 border-slate-900 px-4 py-2 dark:border-slate-200"
             type="submit"
+            disabled={isSubmitting}
           >
-            Send Message
+            {isSubmitting ? "Sending..." : "Send Message"}
           </button>
         </form>
       )}

@@ -25,6 +25,7 @@ export default function Experience() {
                 className="border-b-2 border-slate-900 dark:border-slate-200"
                 target="_blank"
                 href="https://julesai.com/"
+                rel="noreferrer"
               >
                 JulesAI
               </a>

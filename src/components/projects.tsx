@@ -56,6 +56,7 @@ export function Projects() {
                 target="_blank"
                 className="rounded-full border-2 border-slate-900 px-4 py-2 hover:bg-slate-900 hover:text-white dark:border-slate-200"
                 href={project.hostedUrl}
+                rel="noreferrer"
               >
                 Live Demo
               </a>
@@ -63,6 +64,7 @@ export function Projects() {
                 target="_blank"
                 className="rounded-full border-2 border-slate-900 px-4 py-2 hover:bg-slate-900 hover:text-white dark:border-slate-200"
                 href={project.codeUrl}
+                rel="noreferrer"
               >
                 View Code
               </a>

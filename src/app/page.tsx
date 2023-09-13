@@ -1,7 +1,6 @@
 import Image from "next/image";
 import { FaLinkedin, FaGithub } from "react-icons/fa6";
 import { SiFrontendmentor } from "react-icons/si";
-import { Header } from "@/components/header";
 import Experience from "@/components/experience";
 import { Skills } from "@/components/skills";
 import { Projects } from "@/components/projects";
