@@ -36,6 +36,12 @@ export function Header() {
 
   return (
     <header className="sticky top-0 z-20 flex h-12 items-center justify-between border-b-2 border-slate-300 bg-white px-4 py-8 dark:bg-slate-950 md:p-8">
+      <a
+        className="absolute -top-full left-1/2 z-50 -translate-x-1/2 rounded px-4 py-2 transition-all focus:top-4 dark:bg-slate-950"
+        href="#main"
+      >
+        Skip to content
+      </a>
       <h1 className="relative z-40 text-2xl font-bold">
         <Link href="/#">Rajat Bhatt</Link>
       </h1>
@@ -48,7 +54,7 @@ export function Header() {
           aria-expanded={isMenuOpen}
           onClick={() => setIsMenuOpen((prev) => !prev)}
         >
-          <div className="sr-only">Toggle Menu</div>
+          <div className="sr-only">Toggle menu</div>
           <div
             className={`h-1 w-6 bg-black transition-transform dark:bg-slate-200 ${
               isMenuOpen ? "translate-y-0.5 rotate-45" : "-translate-y-1"

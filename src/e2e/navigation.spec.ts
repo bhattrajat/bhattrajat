@@ -1,8 +1,10 @@
 import { test, expect } from "@playwright/test";
 
-test("should navigate to the blog page", async ({ page }) => {
+test("should navigate to the blog page", async ({ page, isMobile }) => {
   // Start from the index page (the baseURL is set via the webServer in the playwright.config.ts)
   await page.goto("/");
+  // Click on burger menu first if it is a mobile
+  if (isMobile) await page.getByRole("button", { name: "Toggle menu" }).click();
   // Find an element with the text 'About Page' and click on it
   await page.click("text=Blog");
   // The new URL should be "/about" (baseURL is used there)
@@ -13,6 +15,7 @@ test("should navigate to the blog page", async ({ page }) => {
   await page.click(`text="Rajat Bhatt"`);
   await expect(page).toHaveURL("/");
   // Goto contact me
+  if (isMobile) await page.getByRole("button", { name: "Toggle menu" }).click();
   await page.click(`text="Contact Me"`);
   await expect(page).toHaveURL("/#contact-me");
 });

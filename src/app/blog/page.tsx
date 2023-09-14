@@ -26,7 +26,7 @@ export default function Home() {
   );
 
   return (
-    <div className="mx-auto max-w-xl px-4 py-8">
+    <div className="mx-auto max-w-xl py-8">
       <h2 className="mb-8 text-center text-3xl font-bold">
         Read my blog posts
       </h2>

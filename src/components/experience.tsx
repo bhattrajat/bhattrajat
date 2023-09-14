@@ -12,7 +12,7 @@ export default function Experience() {
           </span>
         </h2>
       </header>
-      <main className="mt-4 grid gap-4 md:grid-cols-2">
+      <div className="mt-4 grid gap-4 md:grid-cols-2">
         <div className="rounded-3xl border-2 border-slate-900 p-4 dark:border-slate-200">
           <h3 className="text-xl font-bold">Senior Software Engineer</h3>
           <h4 className="text-lg font-semibold text-slate-800 dark:text-slate-200">
@@ -65,7 +65,7 @@ export default function Experience() {
             </li>
           </ul>
         </div>
-      </main>
+      </div>
     </section>
   );
 }
