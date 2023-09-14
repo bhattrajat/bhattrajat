@@ -9,4 +9,10 @@ test("should navigate to the blog page", async ({ page }) => {
   await expect(page).toHaveURL("/blog");
   // The new page should contain an h2 with "Read my blog posts"
   await expect(page.locator("h2")).toContainText("Read my blog posts");
+  // Goto homepage again
+  await page.click(`text="Rajat Bhatt"`);
+  await expect(page).toHaveURL("/");
+  // Goto contact me
+  await page.click(`text="Contact Me"`);
+  await expect(page).toHaveURL("/#contact-me");
 });
