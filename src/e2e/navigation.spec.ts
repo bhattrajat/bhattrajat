@@ -14,5 +14,5 @@ test("should navigate to the blog page", async ({ page }) => {
   await expect(page).toHaveURL("/");
   // Goto contact me
   await page.click(`text="Contact Me"`);
-  await expect(page).toHaveURL("/#contact");
+  await expect(page).toHaveURL("/#contact-me");
 });
