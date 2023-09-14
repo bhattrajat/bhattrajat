@@ -10,6 +10,7 @@
     "test:e2e": "playwright test"
   },
   "dependencies": {
+    "@axe-core/playwright": "^4.7.3",
     "@headlessui/react": "^1.7.17",
     "@types/node": "20.5.9",
     "@types/react": "18.2.21",

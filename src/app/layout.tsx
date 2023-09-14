@@ -24,7 +24,9 @@ export default function RootLayout({
       >
         <Providers>
           <Header />
-          {children}
+          <main role="main" id="main" className="p-4 md:p-8">
+            {children}
+          </main>
         </Providers>
         <Analytics />
       </body>
