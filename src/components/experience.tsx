@@ -55,13 +55,13 @@ export default function Experience() {
           </h4>
           <ul className="mt-2 list-inside list-disc">
             <li>
-              Worked as a web developer using React & NextJS to build content
-              driven sites using headless CMS like Wordpress, Contentful, Strapi
-              CMS
+              Worked on a complete revamp of a marketing site for a US based
+              banking company, resulting in a 30% increase in user engagement.
             </li>
             <li>
-              Worked with different clients to create their marketing sites,
-              internal web portals etc
+              Worked as a web developer using React & NextJS to build content
+              driven sites using headless CMS like WordPress, Contentful, Strapi
+              CMS
             </li>
           </ul>
         </div>
