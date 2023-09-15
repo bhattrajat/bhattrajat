@@ -1,0 +1,39 @@
+---
+title: How to add skip to content link properly
+date: 2023-09-15
+---
+
+Once I hosted my site, I was actively testing the accessibility of the site. I have used tools like [Lighthouse](https://developer.chrome.com/docs/lighthouse/accessibility/) to check site's accessibility
+
+To add some more checks I have decided to integrate [Axe core](https://github.com/dequelabs/axe-core) into Playwright test and I found that I was missing skip to content link which is a very important thing to improve the accessibility.
+
+It is recommended to have **Skip to Content** link to be the first link in the DOM
+
+So I have added the link as the first link in the header.
+
+```html
+<a
+  className="absolute -top-full left-1/2 z-50 -translate-x-1/2 rounded px-4 py-2 transition-all focus:top-4"
+  href="#main"
+>
+  Skip to content
+</a>
+```
+
+While adding the **Skip to content** We need to make sure few points
+
+- It is not required to have the link visible until we press tab keyword
+- To make the link not visible we can't use `display:hidden` property since it will not focus the link if we press tab
+- So to add the link we can use CSS absolute & transform property to move the link in the area where it won't be visible.
+- Also we need to make sure we have main as id in the content area.
+
+```html
+<header>...</header>
+<main role="main" id="main" className="p-4 md:p-8"></main>
+```
+
+So when the user will press the tab key we can use `:focus` pseudo class to make it visible again by resetting the transform. We can also use CSS transition to animate it to add extra attention.
+
+I hope this explanation was helpful to understand adding skip link to improve accessibility in your projects. Please let me know if you have any suggestions/improvements for this article.
+
+Thanks for reading 😊
