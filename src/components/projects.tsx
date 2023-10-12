@@ -1,16 +1,16 @@
 import Image from "next/image";
 const PROJECTDATA = [
   {
+    imageUrl: "/projects/ecommerce.png",
+    name: "The chocolate shop",
+    hostedUrl: "https://tonyschocolonely.vercel.app/",
+    codeUrl: "https://github.com/bhattrajat/tonyschocolonely/",
+  },
+  {
     imageUrl: "/projects/countries-api.webp",
     name: "Country Finder",
     hostedUrl: "https://rajat-country-finder.vercel.app/countries",
     codeUrl: "https://github.com/bhattrajat/country-finder",
-  },
-  {
-    imageUrl: "/projects/todo-app.webp",
-    name: "Todo App with Dark mode",
-    hostedUrl: "https://next-server-actions-todo-app.vercel.app/",
-    codeUrl: "https://github.com/bhattrajat/next-server-actions-todo-app",
   },
   {
     imageUrl: "/projects/image-classifier.png",
