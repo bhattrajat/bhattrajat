@@ -63,6 +63,10 @@ export default function Experience() {
               driven sites using headless CMS like WordPress, Contentful, Strapi
               CMS
             </li>
+            <li>
+              Focused on improving accessibility and core web vitals using
+              Google&apos;s lighthouse tool
+            </li>
           </ul>
         </div>
       </div>
