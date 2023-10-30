@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { FaLinkedin, FaGithub } from "react-icons/fa6";
-import { SiFrontendmentor } from "react-icons/si";
+import { SiFrontendmentor, SiHackerrank } from "react-icons/si";
 import Experience from "@/components/experience";
 import { Skills } from "@/components/skills";
 import { Projects } from "@/components/projects";
@@ -63,9 +63,21 @@ export default function Home() {
             href="https://www.frontendmentor.io/profile/bhattrajat"
             target="_blank"
             rel="noopener noreferrer"
+            className="rounded-full bg-black dark:bg-white"
           >
             <span className="sr-only">FrontEnd Mentor</span>
-            <SiFrontendmentor title="FrontEnd Mentor" className="h-8 w-8" />
+            <SiFrontendmentor
+              title="FrontEnd Mentor"
+              className="h-8 w-8 stroke-1 p-1 text-white dark:text-black"
+            />
+          </a>
+          <a
+            href="https://www.hackerrank.com/profile/Rajatbhatt"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <span className="sr-only">HackerRank</span>
+            <SiHackerrank title="HackerRank" className="h-8 w-8 rounded-full" />
           </a>
         </div>
       </section>
