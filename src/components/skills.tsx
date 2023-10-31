@@ -1,4 +1,5 @@
 import {
+  SiGit,
   SiGraphql,
   SiNextdotjs,
   SiNodedotjs,
@@ -32,10 +33,10 @@ export function Skills() {
           <SiPostgresql className="mr-1 inline-block h-8 w-8" /> Postgres
         </li>
         <li className="flex items-center rounded-lg border-2 border-slate-900 px-4 py-2 dark:border-slate-200">
-          REST
+          <SiGit className="mr-1 inline-block h-8 w-8" /> Git
         </li>
         <li className="rounded-lg border-2 border-slate-900 px-4 py-2 dark:border-slate-200">
-          <SiGraphql className="mr-1 inline-block h-8 w-8" /> GraphQL
+          <SiGraphql className="mr-1 inline-block h-8 w-8" /> GraphQL / REST
         </li>
       </ul>
     </section>
