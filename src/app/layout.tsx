@@ -4,6 +4,7 @@ import { Inter } from "next/font/google";
 import { Analytics } from "@vercel/analytics/react";
 import { Providers } from "@/components/providers/theme-provider";
 import { Header } from "@/components/header";
+import Footer from "@/components/footer";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -27,6 +28,7 @@ export default function RootLayout({
           <main role="main" id="main" className="p-4 md:p-8">
             {children}
           </main>
+          <Footer />
         </Providers>
         <Analytics />
       </body>
