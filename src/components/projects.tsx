@@ -64,7 +64,10 @@ export function Projects() {
                 rel="noreferrer"
               >
                 {/* <SiVercel className="mr-1 inline-block h-5 w-5" /> */}
-                <project.hostedOnIcon className="mr-1 inline-block h-5 w-5" />
+                <project.hostedOnIcon
+                  title="project host"
+                  className="mr-1 inline-block h-5 w-5"
+                />
                 Live Demo
               </a>
               <a
@@ -73,7 +76,10 @@ export function Projects() {
                 href={project.codeUrl}
                 rel="noreferrer"
               >
-                <SiGithub className="mr-1 inline-block h-5 w-5" />
+                <SiGithub
+                  title="Github"
+                  className="mr-1 inline-block h-5 w-5"
+                />
                 View Code
               </a>
             </div>
