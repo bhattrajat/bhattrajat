@@ -56,13 +56,17 @@ export function Header() {
         >
           <div className="sr-only">Toggle menu</div>
           <div
-            className={`h-1 w-6 bg-black transition-transform dark:bg-slate-200 ${
-              isMenuOpen ? "translate-y-0.5 rotate-45" : "-translate-y-1"
+            className={`relative h-1 w-6 bg-black dark:bg-slate-200 ${
+              isMenuOpen
+                ? "top-[2px] rotate-45 [transition:top_0.2s_ease-in-out,_transform_0.2s_ease-in-out_0.2s]"
+                : "-top-1 [transition:transform_0.2s_ease-in,_top_0.2s_ease-in_0.2s]"
             }`}
           ></div>
           <div
-            className={`h-1 w-6 bg-black transition-transform dark:bg-slate-200 ${
-              isMenuOpen ? "-translate-y-0.5 -rotate-45" : "translate-y-1"
+            className={`relative h-1 w-6 bg-black dark:bg-slate-200 ${
+              isMenuOpen
+                ? "-top-[2px] -rotate-45 [transition:top_0.2s_ease-in-out,_transform_0.2s_ease-in-out_0.2s]"
+                : "top-1 [transition:transform_0.2s_ease-in,_top_0.2s_ease-in_0.2s]"
             }`}
           ></div>
         </button>

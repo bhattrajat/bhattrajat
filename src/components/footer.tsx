@@ -2,7 +2,7 @@ import { SiNextdotjs, SiTailwindcss } from "react-icons/si";
 
 export default function Footer() {
   return (
-    <footer className="flex items-center justify-center gap-2 border-t-2 border-t-slate-300 py-2 text-xl">
+    <footer className="flex items-center justify-center gap-2 border-t-2 border-t-slate-300 py-4 text-xl">
       Made with{" "}
       <a target="_blank" href="https://nextjs.org/">
         <span className="sr-only">Next.js</span>
