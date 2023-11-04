@@ -103,6 +103,7 @@ export function Projects() {
               width={300}
               className="aspect-video h-auto w-auto object-cover"
               height={300}
+              quality={100}
             />
             <h3 className="text-lg font-semibold">{project.name}</h3>
             <div className="px-4">{project.description}</div>
