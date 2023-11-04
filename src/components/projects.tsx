@@ -7,6 +7,21 @@ const PROJECTDATA = [
     hostedOnIcon: SiVercel,
     hostedUrl: "https://tonyschocolonely.vercel.app/",
     codeUrl: "https://github.com/bhattrajat/tonyschocolonely/",
+    description: (
+      <ul className="list-disc text-left">
+        <li>
+          An e-commerce application created using Next.js 13, PostgreSQL,
+          Tailwind CSS and Stripe checkout.
+        </li>
+        <li>Used React server components for better SEO and performance</li>
+        <li>Added Persistent shopping cart using localStorage</li>
+        <li>Added Stripe checkout for payment and shipping info</li>
+        <li>
+          Used Supabase for storing product data in Postgres db and image
+          storage using supabase buckets
+        </li>
+      </ul>
+    ),
   },
   {
     imageUrl: "/projects/countries-api.webp",
@@ -14,6 +29,21 @@ const PROJECTDATA = [
     hostedOnIcon: SiVercel,
     hostedUrl: "https://rajat-country-finder.vercel.app/countries",
     codeUrl: "https://github.com/bhattrajat/country-finder",
+    description: (
+      <ul className="list-disc text-left">
+        <li>
+          A Web app which shows countries data using Rest Countries API to fetch
+          data of all the countries in the world.
+        </li>
+        <li>Implemented skeleton loader using suspense and next routing</li>
+        <li>Added dark mode</li>
+        <li>Added Stripe checkout for payment and shipping info</li>
+        <li>
+          Since the API does not provide pagination, it uses Intersection
+          Observer to add client-side infinite scrolling
+        </li>
+      </ul>
+    ),
   },
   {
     imageUrl: "/projects/image-classifier.png",
@@ -21,6 +51,16 @@ const PROJECTDATA = [
     hostedOnIcon: SiPython,
     hostedUrl: "https://rajatbhatt.pythonanywhere.com/",
     codeUrl: "https://github.com/bhattrajat/Handwritten-digit-recognizer",
+    description: (
+      <ul className="list-disc text-left">
+        <li>
+          A Web app which uses pretrained Convolutional Neural Network model
+          using tensorflowjs to predict handwritten digits
+        </li>
+        <li>Implemented drawing feature using HTML canvas and Javascript </li>
+        <li>Used flask to implement simple server in python</li>
+      </ul>
+    ),
   },
   {
     imageUrl: "/projects/space-tourism.webp",
@@ -28,6 +68,15 @@ const PROJECTDATA = [
     hostedOnIcon: SiNetlify,
     hostedUrl: "https://space-tourism-rajat.netlify.app/",
     codeUrl: "https://github.com/bhattrajat/space-tourism",
+    description: (
+      <ul className="list-disc text-left">
+        <li>
+          Created a multi-page static site using Next.js, Tailwind CSS and
+          Strapi CMS
+        </li>
+        <li>Implemented responsive design using mobile first approach</li>
+      </ul>
+    ),
   },
 ];
 export function Projects() {
@@ -56,7 +105,8 @@ export function Projects() {
               height={300}
             />
             <h3 className="text-lg font-semibold">{project.name}</h3>
-            <div className="flex justify-around">
+            <div className="px-4">{project.description}</div>
+            <div className="mt-auto flex justify-around">
               <a
                 target="_blank"
                 className="flex items-center rounded-full border-2 border-slate-900 px-4 py-2 hover:bg-slate-900 hover:text-white dark:border-slate-200"
