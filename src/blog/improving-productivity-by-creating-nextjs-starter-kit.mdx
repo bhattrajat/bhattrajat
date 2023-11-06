@@ -1,0 +1,57 @@
+---
+title: Improving productivity by creating a personalized Next.js Starter Kit
+date: 2023-11-05
+---
+
+I created a personalized [Next.js starter kit](https://github.com/bhattrajat/nextjs-boilerplate) for setting up common quality of life improvements on top of standard create-next-app installation so I do not have to waste my time on doing same things again and again.
+
+## Motivation
+
+I love Next.js and Tailwind and create-next-app also provides a really good way to setup tailwind with Next.js. But there are some things missing in the standard next.js installation which I used to setup on my every new Next.js project.
+
+Generally my standard create-next-app steps goes like this
+
+- Select yes to add Typescript, EsLinst, Tailwind CSS, Src Directory, App router and customize default alias to @/\*
+- Install [Prettier](https://prettier.io/) and [Tailwind Prettier Plugin](https://tailwindcss.com/blog/automatic-class-sorting-with-prettier) Since the standard installation does not provide automatic class sorting for tailwind classes
+- The default Eslint config is not enough for me so I like to extend Eslint configuration using eslint:recommended and also add additional eslint plugins like typescript-eslint, react, react-hooks & typescript-sort-keys
+- Also I would like to add automatic import sorting plugin in prettier to sort all the imports alphabetically.
+- After watching this [great talk](https://www.youtube.com/watch?v=sSJBeWPIipQ&ab_channel=JSWORLDConference) by [JoshuaKGoldberg](https://github.com/JoshuaKGoldberg/linting-typescript-in-2023), I loved his idea of customizing error display for eslint errors to yellow/warn so we can easily differentiate between typescript error(red/error) and linting error(yellow/warn). So setup the same for vscode project using .vscode/settings.json on project level
+- Ask vscode to enable vscode to fix all the fixable linting errors on save. (Same in .vscode/settings.json)
+- Also even if you are using absolute imports and use vscode to auto import stuff It may use relative import if it is shorter/closer of the import. So Ask vscode to always prefer absolute/non-relative imports for typescript/tsx files.
+
+This things takes some time to setup everytime I create a new Next.js project so I decided to create a starter-kit to setup my next.js project using all this goodies with a single command
+
+## Features
+
+- Uses Next.js 14 with App dir that means React server components and stable server actions (Finally🤩)
+- Tailwind CSS with automatic class sorting for following recommended class sorting recommended by Tailwind Team
+- More strict Eslint config with recommended rules by Eslint Team.
+- It also supports typescript using Typescript Eslint plugin
+- Add React and react-hooks eslint plugin to write better react code.
+- Format code with prettier and fix all the fixable eslint errors on save for vscode
+- Separate color for eslint (yellow) and typescript (red) error to visualize and differentiate errors easily.
+- Auto sorting import using prettier plugin
+
+## Getting Started
+
+Install it by the following command. This uses pnpm:
+
+```bash
+pnpx create-next-app --use-pnpm -e "https://github.com/bhattrajat/nextjs-boilerplate/tree/main/"
+```
+
+```bash
+cd nextjs-boilerplate
+```
+
+Then run
+
+```bash
+pnpm dev
+```
+
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+
+Please feel free to use the starter kit if you like it. If you think this can be further improved please create a PR and I will take a look at it.
+
+If you like it please star the repo and let me know.
