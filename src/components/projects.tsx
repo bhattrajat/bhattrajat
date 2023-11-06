@@ -88,7 +88,7 @@ export function Projects() {
       <h2 className="flex flex-col text-center text-slate-900 dark:text-slate-200">
         Browse my{" "}
         <span className="text-xl font-bold text-black dark:text-white">
-          Projects
+          Personal Projects
         </span>
       </h2>
       <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
