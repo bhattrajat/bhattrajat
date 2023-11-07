@@ -24,6 +24,54 @@ const PROJECTDATA = [
     ),
   },
   {
+    imageUrl: "/projects/http2.gif",
+    name: "HTTP1.1 vs HTTP2 Comparison",
+    codeUrl: "https://github.com/bhattrajat/http1.1vshttp2/",
+    description: (
+      <ul className="list-disc text-left">
+        <li>
+          Created HTTP1.1 and HTTP2 servers using Node&apos;s inbuilt http and
+          http2 library
+        </li>
+        <li>
+          Results shows that in this example http2 is around 4x faster that
+          http1.1 which shows the power of multiplexing in http2
+        </li>
+        <li>
+          In this demo, I have cropped a 500x500 image into 100 images with
+          50x50 and showing all the 100 images using both http1.1 and http2
+          protocol.
+        </li>
+      </ul>
+    ),
+  },
+  {
+    imageUrl: "/projects/next-starter.png",
+    name: "Next.js Starter kit for production apps",
+    codeUrl: "https://github.com/bhattrajat/nextjs-boilerplate",
+    description: (
+      <ul className="list-disc text-left">
+        <li>
+          Created personalized Next.js starter kit for setting up common quality
+          of life improvements on top of standard create-next-app installation.
+        </li>
+        <li>Added Prettier tailwind plugin for automatic class sorting</li>
+        <li>
+          Extended eslint with eslint:recommended, typescript-eslint, react,
+          react-hooks & typescript-sort-keys
+        </li>
+        <li>
+          Add automatic import sorting plugin in prettier to sort all the
+          imports alphabetically
+        </li>
+        <li>
+          Updated project specific settings.json for vscode to enable more
+          settings (Mentioned in readme){" "}
+        </li>
+      </ul>
+    ),
+  },
+  {
     imageUrl: "/projects/countries-api.webp",
     name: "Country Finder",
     hostedOnIcon: SiVercel,
@@ -91,7 +139,7 @@ export function Projects() {
           Personal Projects
         </span>
       </h2>
-      <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+      <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
         {PROJECTDATA.map((project) => (
           <div
             key={project.name}
@@ -108,19 +156,23 @@ export function Projects() {
             <h3 className="text-lg font-semibold">{project.name}</h3>
             <div className="px-4">{project.description}</div>
             <div className="mt-auto flex justify-around">
-              <a
-                target="_blank"
-                className="flex items-center rounded-full border-2 border-slate-900 px-4 py-2 hover:bg-slate-900 hover:text-white dark:border-slate-200"
-                href={project.hostedUrl}
-                rel="noreferrer"
-              >
-                {/* <SiVercel className="mr-1 inline-block h-5 w-5" /> */}
-                <project.hostedOnIcon
-                  title="project host"
-                  className="mr-1 inline-block h-5 w-5"
-                />
-                Live Demo
-              </a>
+              {project.hostedUrl && (
+                <a
+                  target="_blank"
+                  className="flex items-center rounded-full border-2 border-slate-900 px-4 py-2 hover:bg-slate-900 hover:text-white dark:border-slate-200"
+                  href={project.hostedUrl}
+                  rel="noreferrer"
+                >
+                  {/* <SiVercel className="mr-1 inline-block h-5 w-5" /> */}
+                  {project.hostedOnIcon && (
+                    <project.hostedOnIcon
+                      title="project host"
+                      className="mr-1 inline-block h-5 w-5"
+                    />
+                  )}
+                  Live Demo
+                </a>
+              )}
               <a
                 target="_blank"
                 className="flex items-center rounded-full border-2 border-slate-900 px-4 py-2 hover:bg-slate-900 hover:text-white dark:border-slate-200"
