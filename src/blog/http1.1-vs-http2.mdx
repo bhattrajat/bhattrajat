@@ -1,0 +1,34 @@
+---
+title: Comparing HTTP1.1 vs HTTP2
+date: 2023-11-07
+---
+
+Recently, I started learning about the evolution of HTTP protocols and how HTTP2 can improve its performance compared to HTTP1.1. And I found a pretty interesting difference between how the connection works on both of the protocols. Here is the gist of it.
+
+## Improvements in HTTP1.1 over HTTP1
+
+- HTTP 1.1 uses keep-alive header to keep the underlying TCP connections alive so It can reuse the same connection for multiple requests. Still, It needs to wait until the server completes its response for a given request before sending another request. Which is still an improvement over HTTP 1.0
+- To overcome this request-response cycle, browser uses multiple TCP connections (max 6 in most modern browsers). But still creating multiple connections is expensive and resource intensive.
+
+## Improvements in HTTP2 over HTTP1.1
+
+- It uses multiplexing using frames and stream IDs to send data over a single TCP connection.
+- It has many other improvements like header compression & stream prioritization.
+
+## Demo Time:
+
+I have cropped an image of 500x500 to 50x50 to create 100 images and then loaded them all in a single html file using image tags. This is a bit exaggerated example since in the real world we don't have that many assets for a single document. But it is a good example to understand the capabilities of http2.
+
+In this example, http2 is around 5x (~10.5s in HTTP1.1 vs ~2.1s in HTTP2 in Fast3G) faster than http1.1 which shows the power of multiplexing over a single TCP connection.
+
+### HTTP1.1 Example
+
+![http1 Example](/blog/http1.gif)
+
+### HTTP2 Example
+
+![http2 Example](/blog/http2.gif)
+
+You can checkout full code in my [github repo here](https://github.com/bhattrajat/http1.1vshttp2)
+
+Please feel free to message me if you want to improve this article.
