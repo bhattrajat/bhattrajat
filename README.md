@@ -5,6 +5,8 @@
 
 - 🌱 I’m currently learning **GraphQL, Postgres & Docker**
 
+- 💻 View my Portfolio at [rajatbhatt.vercel.app](https://rajatbhatt.vercel.app/)
+
 - 👨‍💻 All of my projects are available at [github.com/bhattrajat](github.com/bhattrajat)
 
 - 💬 Ask me about **React, Tailwind CSS, NextJS**
