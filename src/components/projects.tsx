@@ -85,9 +85,8 @@ const PROJECTDATA = [
         </li>
         <li>Implemented skeleton loader using suspense and next routing</li>
         <li>Added dark mode</li>
-        <li>Added Stripe checkout for payment and shipping info</li>
         <li>
-          Since the API does not provide pagination, it uses Intersection
+          Since the third party Rest countries API does not provide pagination, it uses Intersection
           Observer to add client-side infinite scrolling
         </li>
       </ul>
