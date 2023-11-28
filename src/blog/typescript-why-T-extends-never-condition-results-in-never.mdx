@@ -1,0 +1,67 @@
+---
+title: "Why T extends never ? true : false condition results in never in Typescript"
+date: 2023-11-28
+---
+
+In this post we will understand why T extends never conditional type in typescript results to never.
+
+## Encounter with the problem
+
+I was solving some [Type Challenges](https://github.com/type-challenges/type-challenges) to improve my typescript knowledge.
+During that, I encountered the following problem.
+
+### Implement a type IsNever, which takes input type T. If the type of resolves to never, return true, otherwise false.
+
+Initially I tried to solve this with a simple conditional type like this.
+
+```typescript
+type isNever<T> = T extends never ? true : false;
+```
+
+But to my surprise, I found out that if we try to pass never as a generic type and create another type it returns never.
+
+```typescript
+// isNever<never> returns never
+type shouldBeTrue = isNever<never>;
+```
+
+To understand this I have tried to understand the behavior from various sources and I found two interesting resources.
+
+- There is already a [closed issue](https://github.com/microsoft/TypeScript/issues/31751) created in Typescript Github Repo for this which also provides good explanation regarding this behavior.
+- Combined this with [official typescript handbook](https://www.typescriptlang.org/docs/handbook/2/conditional-types.html#distributive-conditional-types) which explains how distributive conditional types work.
+
+After giving some time to understand this behavior, It is clear that it is not a bug but it is the expected behavior as per Typescript's rule
+
+To understand this I will try to align this with some basic set theory. I will also try to explain it without it so even if you can't understand set theory you will be able to understand this.
+
+In terms of set theory never type is equivalent to empty set which roughly means it is an empty list in terms of javascript.
+
+Since we are using this as a distributive conditional type in our code. Typescript tries to map through all of the possible values which we provide as the type of the generic.
+
+To understand distributive conditional type, here is the example provided in the typescript docs.
+
+```typescript
+type ToArray<Type> = Type extends any ? Type[] : never;
+
+type StrArrOrNumArr = ToArray<string | number>;
+//type StrArrOrNumArr = string[] | number[]
+```
+
+As you can see in this case typescript map through both the values and returns the respective conditional type which will be string[] for string type and number[] for number type. Then it will do the union of both the return types.
+
+Now in the case of `isNever<never>` since the never is considered as set of empty values typescript doesn't even map through (distribute) it's values and since it won't map through, it will result in empty set of types which is equivalent the never type.
+
+This is the reason why `isNever<never>` results to never type.
+
+Now you might have a question that how do we solve the type challenge. Typescript docs also provides a solution for this king of situation which is wrapping both sides of the extends keyword with square brackets. It essentially makes both the sides a tuple.
+
+So this will solve our type challenge.
+
+```typescript
+type isNever<T> = [T] extends [never] ? true : false;
+type shouldBeTrue = isNever<never>; //true
+```
+
+In this case, Typescript has to loop through for this condition so in the case of never the condition will become like `[never] extends [never] ? true : false` which is true so it returns true.
+
+I hope this article will help you understand typescript better. Please feel free to ping me if you have any doubts or suggestions to improve this article.

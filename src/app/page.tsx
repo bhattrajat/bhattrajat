@@ -18,12 +18,14 @@ export default function Home() {
           priority={true}
         />
         <h1 className="flex flex-col gap-1 font-bold leading-loose text-slate-800 dark:text-slate-200">
-          Hello, I am{" "}
+          Hello 👋, My name is{" "}
           <span className="text-2xl text-black dark:text-white">
             Rajat Bhatt
           </span>
-          Full stack web developer
         </h1>
+        <p className="my-2 text-center">
+          I am a full stack web developer. Welcome To my portfolio.
+        </p>
         <div className="mt-4 flex gap-4 text-sm">
           <a
             type="button"
