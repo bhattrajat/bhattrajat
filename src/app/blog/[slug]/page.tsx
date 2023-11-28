@@ -1,5 +1,6 @@
 import { format, parseISO } from "date-fns";
 import { allPosts } from "contentlayer/generated";
+import type { MDXComponents } from "mdx/types";
 import { getMDXComponent } from "next-contentlayer/hooks";
 import { notFound } from "next/navigation";
 
@@ -9,6 +10,17 @@ export const generateStaticParams = async () =>
 export const generateMetadata = ({ params }: { params: { slug: string } }) => {
   const post = allPosts.find((post) => post._raw.flattenedPath === params.slug);
   return { title: post?.title };
+};
+
+// Define your custom MDX components.
+const mdxComponents: MDXComponents = {
+  // Override the default <a> element to open link in a new tab.
+  a: ({ href, children }) => (
+    <a target="_blank" href={href as string}>
+      {children}
+    </a>
+  ),
+  // Add a custom component.
 };
 
 const PostLayout = ({ params }: { params: { slug: string } }) => {
@@ -28,7 +40,7 @@ const PostLayout = ({ params }: { params: { slug: string } }) => {
           {format(parseISO(post.date), "LLLL d, yyyy")}
         </time>
       </div>
-      <Content />
+      <Content components={mdxComponents} />
     </article>
   );
 };
