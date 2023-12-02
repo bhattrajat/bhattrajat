@@ -37,7 +37,7 @@ const PROJECTDATA = [
             className="text-blue-700 underline dark:text-blue-500"
             href="https://github.com/type-challenges/type-challenges"
           >
-            Type challenges
+            Type challenges Progress Tracker
           </a>{" "}
           repository. Since the original repo does not provide a good way to
           track the progress, I made this to keep track of my progress while
