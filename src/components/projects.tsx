@@ -24,24 +24,31 @@ const PROJECTDATA = [
     ),
   },
   {
-    imageUrl: "/projects/http2.gif",
-    name: "HTTP1.1 vs HTTP2 Comparison",
-    codeUrl: "https://github.com/bhattrajat/http1.1vshttp2/",
+    imageUrl: "/projects/type-challenges.png",
+    name: "Type Challenges",
+    hostedOnIcon: SiVercel,
+    codeUrl: "https://github.com/bhattrajat/type-challenges",
+    hostedUrl: "https://type-challenges.vercel.app/",
     description: (
       <ul className="list-disc text-left">
-        <li>
-          Created HTTP1.1 and HTTP2 servers using Node&apos;s inbuilt http and
-          http2 library
+        <li className="my-4 max-w-2xl">
+          This is a companion app for the popular{" "}
+          <a
+            className="text-blue-700 underline dark:text-blue-500"
+            href="https://github.com/type-challenges/type-challenges"
+          >
+            Type challenges
+          </a>{" "}
+          repository. Since the original repo does not provide a good way to
+          track the progress, I made this to keep track of my progress while
+          solving typescript challenges.
         </li>
+        <li>It uses local storage to store the progress.</li>
         <li>
-          Results shows that in this example http2 is around 4x faster that
-          http1.1 which shows the power of multiplexing in http2
+          Implemented filters using query parameters in the URL as a best
+          practice
         </li>
-        <li>
-          In this demo, I have cropped a 500x500 image into 100 images with
-          50x50 and showing all the 100 images using both http1.1 and http2
-          protocol.
-        </li>
+        <li>Created with Next.js 14 & Tailwind CSS. Also added dark mode</li>
       </ul>
     ),
   },
@@ -86,8 +93,8 @@ const PROJECTDATA = [
         <li>Implemented skeleton loader using suspense and next routing</li>
         <li>Added dark mode</li>
         <li>
-          Since the third party Rest countries API does not provide pagination, it uses Intersection
-          Observer to add client-side infinite scrolling
+          Since the third party Rest countries API does not provide pagination,
+          it uses Intersection Observer to add client-side infinite scrolling
         </li>
       </ul>
     ),
@@ -148,7 +155,7 @@ export function Projects() {
               src={project.imageUrl}
               alt={project.name}
               width={300}
-              className="aspect-video h-auto w-auto object-cover"
+              className="aspect-video h-auto w-auto object-contain"
               height={300}
               quality={100}
             />
