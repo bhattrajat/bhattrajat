@@ -13,7 +13,7 @@
     "@axe-core/playwright": "^4.7.3",
     "@codesandbox/sandpack-react": "^2.10.0",
     "@headlessui/react": "^1.7.17",
-    "@types/node": "20.8.6",
+    "@types/node": "20.10.6",
     "@types/react": "18.2.21",
     "@types/react-dom": "18.2.7",
     "@vercel/analytics": "^1.0.2",
