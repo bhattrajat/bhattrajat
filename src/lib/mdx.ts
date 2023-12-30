@@ -38,7 +38,7 @@ export async function getAllPostMeta() {
   for (const file of files) {
     const slug = file.replace(/\.mdx$/, "");
     const post = await getPostBySlug(slug);
-    postMetas.push({ ...(post?.meta ?? {}), url: `/blog/${slug}` });
+    postMetas.push({ ...(post?.meta ?? {}), slug, url: `/blog/${slug}` });
   }
   return postMetas;
 }

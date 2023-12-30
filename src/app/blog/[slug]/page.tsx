@@ -4,7 +4,7 @@ import { notFound } from "next/navigation";
 
 export const generateStaticParams = async () => {
   const blogMeta = await getAllPostMeta();
-  return blogMeta.map((blog) => ({ slug: blog.url }));
+  return blogMeta.map((blog) => ({ slug: blog.slug }));
 };
 
 export const generateMetadata = async ({
@@ -17,6 +17,7 @@ export const generateMetadata = async ({
 };
 
 const PostPage = async ({ params }: { params: { slug: string } }) => {
+  console.log();
   const post = await getPostBySlug(params.slug);
 
   if (!post) {
