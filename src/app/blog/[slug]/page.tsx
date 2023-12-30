@@ -4,7 +4,6 @@ import { notFound } from "next/navigation";
 
 export const generateStaticParams = async () => {
   const blogMeta = await getAllPostMeta();
-  console.log({ blogMeta });
   return blogMeta.map((blog) => ({ slug: blog.url }));
 };
 

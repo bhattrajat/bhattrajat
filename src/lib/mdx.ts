@@ -12,7 +12,6 @@ export type PostMeta = {
 const blogDirectory = path.join(process.cwd(), "src", "blog");
 
 export async function getPostBySlug(slug: string) {
-  console.log("slug", slug);
   const filePath = path.join(process.cwd(), "src", "blog", `${slug}.mdx`);
 
   try {
@@ -39,7 +38,7 @@ export async function getAllPostMeta() {
   for (const file of files) {
     const slug = file.replace(/\.mdx$/, "");
     const post = await getPostBySlug(slug);
-    postMetas.push({ ...(post?.meta ?? {}), url: slug });
+    postMetas.push({ ...(post?.meta ?? {}), url: `/blog/${slug}` });
   }
   return postMetas;
 }
