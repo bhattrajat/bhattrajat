@@ -1,0 +1,298 @@
+---
+title: "Recreating ui.dev card animation using framer motion"
+date: 2023-12-28
+---
+
+I always wanted to learn about creating some good animations using framer motion.
+While browsing the web I found a very cool card drag animation on [ui.dev](https://ui.dev/) which I really liked.
+I had no idea about how to implement this but I challenged myself to implement it using framer motion.
+
+After tinkering for some days during my free time I was finally able to achieve almost the same behavior and I would like to share how I implemented the same.
+
+Let's start with some easy stuff. I started with the initial animation on page load.
+
+```jsx
+<motion.div
+  key={id}
+  layout
+  className="card"
+  style={{
+    backgroundColor: bgColor,
+    gridArea: "1 / 1 / auto / 4",
+    zIndex: 3 - index,
+    cursor: "pointer",
+  }}
+  initial={{
+    x: 500,
+  }}
+  animate={{
+    rotate: index % 2 ? 3 : -3,
+    x: index * 80,
+    scale: 1 - (index - Number(isDragging)) * 0.1,
+  }}
+  transition={{ type: "spring", stiffness: 50 }}
+>
+  {text}
+</motion.div>
+```
+
+First of all we need to convert the standard div element to motion.div component to give it all the animation super powers using framer motion.
+
+Notice the `initial` prop it will help us to set the starting position of every card and setting it 500 will help us to make a smooth transition to it's original position
+
+Now coming to the `animate` prop which is the most useful part of this animation. The animate prop will animate the component on mount. In our case, it will do the transition from 500px right to its actual position. Also, the transition will have "spring" type by default so it will more smooth and will have some physics associated with it.
+animate prop will rotate based on the index of the card. Also combining zIndex in the style and the x property to make it look stacked which will make users to try out some drag interactions with the component
+
+I have attached a sandbox below for you to play and tinker with the animation.
+
+In case if you missed the animation or to view the inital animation properly, you can click on the refresh button provided in the sandbox.
+
+<Sandpack
+  files={{
+    "/App.tsx": 
+    `import { useState } from 'react';
+import './App.css';
+import Card from './Card';
+
+const initialState = [
+{ id: 1, text: 'Card 1', bgColor: '#dc2626' },
+{ id: 2, text: 'Card 2', bgColor: '#16a34a' },
+{ id: 3, text: 'Card 3', bgColor: '#9333ea' },
+];
+export default function App() {
+const [list, setList] = useState(initialState);
+return (
+
+<div
+  style={{
+    height: "100vh",
+    display: "flex",
+    minWidth: "100vw",
+    flexDirection: "column",
+    justifyContent: "center",
+    alignItems: "center",
+    overflowX: "hidden",
+  }}
+>
+  <h2>
+    Inspired from{" "}
+    <a target="_blank" href="https://ui.dev/">
+      ui.dev
+    </a>
+  </h2>
+  <div className="grid">
+    {list.map((item, index) => (
+      <Card
+        key={item.id}
+        id={item.id}
+        index={index}
+        bgColor={item.bgColor}
+        text={item.text}
+      />
+    ))}
+  </div>
+</div>
+); }`, 
+"/App.css": `.card {
+  padding: 6rem 3rem;
+  border: 2px solid black;
+  border-radius: 1rem;
+  box-shadow: 6px 6px 0px rgba(0,0,0,1);
+  color: white;
+  font-size: 2rem;
+}
+
+.flex{
+display: flex;
+}
+
+.grid{
+display: grid;
+grid-template-columns: repeat(3,minmax(0,1fr));
+}
+.relative{
+position: relative;
+}`,
+"Card.tsx": `import { motion } from 'framer-motion';
+
+type Props = {
+id: number;
+index: number;
+text: string;
+bgColor: string;
+};
+export default function Card({ id, index, text, bgColor}: Props) {
+return (
+
+<motion.div
+  key={id}
+  layout
+  className="card"
+  style={{
+    backgroundColor: bgColor,
+    gridArea: "1 / 1 / auto / 4",
+    zIndex: 3 - index,
+    cursor: "pointer",
+  }}
+  initial={{
+    x: 500,
+  }}
+  animate={{
+    rotate: index % 2 ? 3 : -3,
+    x: index * 80,
+  }}
+  transition={{ type: "spring", stiffness: 50 }}
+>
+  {text}
+</motion.div>
+
+);
+}`
+
+}} />
+
+Now coming to implementing the drag and drop part, we can apply a drag prop to the motion component which will make it draggable.
+
+Also we need to update the list state since we need to move the first card to the end based on a swipe. For this we can provide a function to the dragEnd prop in which we can do some calculation if the end swiped components is some distance away then only we need to move it to the end otherwise we need need to move it to its original position (0th index)
+
+To move to its original position we can use dragSnapToOrigin which will set to its original position in a smooth transition
+
+To move to the end on a proper swipe/drag of the card we can use some info which framer provides on the dragEnd function callback.
+
+So the final code will look like this.
+
+<Sandpack
+  files={{
+    "/App.tsx": `import { useState } from 'react';
+import './App.css';
+import Card from './Card';
+
+const initialState = [
+{ id: 1, text: 'Card 1', bgColor: '#dc2626' },
+{ id: 2, text: 'Card 2', bgColor: '#16a34a' },
+{ id: 3, text: 'Card 3', bgColor: '#9333ea' },
+];
+function App() {
+const [list, setList] = useState(initialState);
+const [isDragging, setIsDragging] = useState(false);
+return (
+
+<div
+  style={{
+    height: "100vh",
+    display: "flex",
+    minWidth: "100vw",
+    flexDirection: "column",
+    justifyContent: "center",
+    alignItems: "center",
+    overflowX: "hidden",
+  }}
+>
+  <h2>
+    Inspired from{" "}
+    <a target="_blank" href="https://ui.dev/">
+      ui.dev
+    </a>
+  </h2>
+  <div className="grid">
+    {list.map((item, index) => (
+      <Card
+        setList={setList}
+        isDragging={isDragging}
+        setIsDragging={setIsDragging}
+        key={item.id}
+        id={item.id}
+        index={index}
+        bgColor={item.bgColor}
+        text={item.text}
+      />
+    ))}
+  </div>
+</div>
+); }
+
+export default App;`,
+"App.css": `.card {
+  padding: 8rem 4rem;
+  border: 2px solid black;
+  border-radius: 1rem;
+  box-shadow: 6px 6px 0px rgba(0,0,0,1);
+  color: white;
+  font-size: 2rem;
+}
+
+.flex{
+display: flex;
+}
+
+.grid{
+display: grid;
+grid-template-columns: repeat(3,minmax(0,1fr));
+}
+.relative{
+position: relative;
+}`,
+"Card.tsx": `import { motion } from 'framer-motion';
+import React from 'react';
+type Props = {
+id: number;
+index: number;
+text: string;
+bgColor: string;
+isDragging: boolean;
+setList: React.Dispatch<React.SetStateAction<{id: number,text: string,bgColor: string}[]>>;
+setIsDragging: React.Dispatch<React.SetStateAction<boolean>>;
+};
+export default function Card({
+id,
+index,
+text,
+bgColor,
+setList,
+isDragging,
+setIsDragging,
+}: Props) {
+return (
+
+    <motion.div
+      key={id}
+      drag="x"
+      dragSnapToOrigin
+      layout
+      dragListener={index === 0}
+      onDrag={() => {
+        setIsDragging(true);
+      }}
+      whileDrag={{ cursor: 'grabbing', scale: 1 }}
+      onDragEnd={(_event, info) => {
+        console.log(info);
+        if (info.offset.x < -150) {
+          setList((list) => [...list.slice(1), list[0]]);
+        }
+        setIsDragging(false);
+      }}
+      className="card"
+      style={{
+        backgroundColor: bgColor,
+        gridArea: '1 / 1 / auto / 4',
+        zIndex: 3 - index,
+        cursor: 'pointer',
+      }}
+      initial={{
+        x: 500,
+      }}
+      animate={{
+        rotate: index % 2 ? 3 : -3,
+        x: index * 80,
+        scale: 1 - (index - Number(isDragging)) * 0.1,
+      }}
+      transition={{ type: 'spring', stiffness: 50 }}
+    >
+      {text}
+    </motion.div>
+
+);
+}`
+}} />
+
+Feel free to play with the solution and let me know your thoughts about it or if you find any improvements over this code.
