@@ -17,7 +17,6 @@ export const generateMetadata = async ({
 };
 
 const PostPage = async ({ params }: { params: { slug: string } }) => {
-  console.log();
   const post = await getPostBySlug(params.slug);
 
   if (!post) {
@@ -26,8 +25,8 @@ const PostPage = async ({ params }: { params: { slug: string } }) => {
 
   return (
     <article className="prose prose-slate mx-auto max-w-xl dark:prose-invert prose-code:before:hidden prose-code:after:hidden lg:max-w-3xl">
-      <div className="not-prose mb-8">
-        <h1 className="text-2xl font-bold">{post.meta.title}</h1>
+      <div className="mb-8 prose-headings:mb-1">
+        <h1 className="text-2xl font-bold ">{post.meta.title}</h1>
         <time
           dateTime={post.meta.date.toISOString()}
           className="text-xs dark:text-slate-200"

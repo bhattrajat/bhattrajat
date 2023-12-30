@@ -7,11 +7,9 @@ I always wanted to learn about creating some good animations using framer motion
 While browsing the web I found a very cool card drag animation on [ui.dev](https://ui.dev/) which I really liked.
 I had no idea about how to implement this but I challenged myself to implement it using framer motion.
 
-Also digging down to the original implementation of ui.dev I found that it is also created using framer motion.
-
 After tinkering for some days during my free time I was finally able to achieve almost the same behavior and I would like to share how I implemented the same.
 
-Lets start with some easy stuff. I started with the initial animation on page load.
+Let's start with some easy stuff. I started with the initial animation on page load.
 
 ```jsx
 <motion.div
@@ -38,14 +36,16 @@ Lets start with some easy stuff. I started with the initial animation on page lo
 </motion.div>
 ```
 
+First of all we need to convert the standard div element to motion.div component to give it all the animation super powers using framer motion.
+
 Notice the `initial` prop it will help us to set the starting position of every card and setting it 500 will help us to make a smooth transition to it's original position
 
-Now coming to the `animate` prop which is the most useful part of this animation. The animate prop will animate the component on mount. In our case it will do the transition from 500px right to its actual position. Also the transition will have "spring" type so it will more smooth and will have some physics associated with it.
-animate prop will rotate based on the index of the card. Also it will set the zIndex and the x property to make it look stacked
+Now coming to the `animate` prop which is the most useful part of this animation. The animate prop will animate the component on mount. In our case, it will do the transition from 500px right to its actual position. Also, the transition will have "spring" type by default so it will more smooth and will have some physics associated with it.
+animate prop will rotate based on the index of the card. Also combining zIndex in the style and the x property to make it look stacked which will make users to try out some drag interactions with the component
 
-I have attached a sandpack below for you to play and tinker with the animation.
+I have attached a sandbox below for you to play and tinker with the animation.
 
-To view the inital animation properly, you can click on the refresh button provided in the sandbox.
+In case if you missed the animation or to view the inital animation properly, you can click on the refresh button provided in the sandbox.
 
 <Sandpack
   files={{
@@ -151,7 +151,7 @@ return (
 
 }} />
 
-Now coming to implementing the drag and drop part, we can apply a drag prop to motion component which will make it draggable.
+Now coming to implementing the drag and drop part, we can apply a drag prop to the motion component which will make it draggable.
 
 Also we need to update the list state since we need to move the first card to the end based on a swipe. For this we can provide a function to the dragEnd prop in which we can do some calculation if the end swiped components is some distance away then only we need to move it to the end otherwise we need need to move it to its original position (0th index)
 
@@ -294,3 +294,5 @@ return (
 );
 }`
 }} />
+
+Feel free to play with the solution and let me know your thoughts about it or if you find any improvements over this code.

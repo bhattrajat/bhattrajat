@@ -5,7 +5,7 @@ import { getAllPostMeta } from "@/lib/mdx";
 function PostCard(post: { date: Date; title: string; url: string }) {
   return (
     <div className="mb-8">
-      <h3 className="text-xl">
+      <h3 className="text-lg">
         <Link href={post.url} className="dark:hover:text-slate-300">
           {post.title}
         </Link>
