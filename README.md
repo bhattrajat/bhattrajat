@@ -3,7 +3,7 @@
 
 <p align="left"> <img src="https://komarev.com/ghpvc/?username=bhattrajat&label=Profile%20views&color=0e75b6&style=flat" alt="bhattrajat" /> </p>
 
-- 🌱 I’m currently learning **GraphQL, Postgres & Docker**
+- 🌱 I’m currently learning **Go**
 
 - 💻 View my Portfolio at [rajatbhatt.vercel.app](https://rajatbhatt.vercel.app/)
 
