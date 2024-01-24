@@ -1,6 +1,33 @@
 import Image from "next/image";
-import { SiGithub, SiVercel, SiPython, SiNetlify } from "react-icons/si";
+import { SiGithub, SiVercel, SiPython } from "react-icons/si";
 const PROJECTDATA = [
+  {
+    imageUrl: "/projects/short-it.png",
+    name: "Short It",
+    hostedOnIcon: SiVercel,
+    hostedUrl: "https://short-it-rajat.vercel.app/",
+    codeUrl: "https://github.com/bhattrajat/short-it",
+    description: (
+      <ul className="list-disc text-left">
+        <li>It is a url shortener application like bitly & dub.sh.</li>
+        <li>
+          Created using Next.js 14, React Server components and Server actions.
+        </li>
+        <li>
+          Uses Redis (Vercel KV) to store the urls. Since It is an in memory
+          database it queries data much faster than Disk based databases.
+        </li>
+        <li>
+          Uses Next auth & github Oauth to implement authentication. It has also
+          implemented protected routes so anonymous user can&apos;t access it.
+        </li>{" "}
+        <li>
+          It also uses Next.js dynamic routes & route handlers to implement the
+          redirect logic
+        </li>
+      </ul>
+    ),
+  },
   {
     imageUrl: "/projects/ecommerce.png",
     name: "The chocolate shop",
@@ -113,22 +140,6 @@ const PROJECTDATA = [
         </li>
         <li>Implemented drawing feature using HTML canvas and Javascript </li>
         <li>Used flask to implement simple server in python</li>
-      </ul>
-    ),
-  },
-  {
-    imageUrl: "/projects/space-tourism.webp",
-    name: "Space tourism site",
-    hostedOnIcon: SiNetlify,
-    hostedUrl: "https://space-tourism-rajat.netlify.app/",
-    codeUrl: "https://github.com/bhattrajat/space-tourism",
-    description: (
-      <ul className="list-disc text-left">
-        <li>
-          Created a multi-page static site using Next.js, Tailwind CSS and
-          Strapi CMS
-        </li>
-        <li>Implemented responsive design using mobile first approach</li>
       </ul>
     ),
   },
