@@ -9,6 +9,9 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Rajat Bhatt",
+  verification: {
+    google: "vOiMdryuJTe7tHKM9vmYRYISLkQS5uosBCmSAM4MCus",
+  },
   description:
     "Hi, My name is Rajat Bhatt. I am a full stack developer with 4+ years of experience as a web developer. During my professional career, I have used tools and libraries like React, Javascript, Typescript, GraphQL, Postgres, HTML & CSS",
 };
