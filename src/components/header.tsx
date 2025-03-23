@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useState } from "react";
+import { startTransition, useEffect, useState } from "react";
 import { ThemeSwitcher } from "./themeSwitcher";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
@@ -52,21 +52,21 @@ export function Header() {
           className="relative z-40 flex flex-col md:hidden"
           aria-controls="primary-menu"
           aria-expanded={isMenuOpen}
-          onClick={() => setIsMenuOpen((prev) => !prev)}
+          onClick={() => startTransition(() => setIsMenuOpen((prev) => !prev))}
         >
           <div className="sr-only">Toggle menu</div>
           <div
-            className={`relative h-1 w-6 bg-black dark:bg-slate-200 ${
+            className={`h-1 w-6 bg-black dark:bg-slate-200 ${
               isMenuOpen
-                ? "top-[2px] rotate-45 [transition:top_0.2s_ease-in-out,_transform_0.2s_ease-in-out_0.2s]"
-                : "-top-1 [transition:transform_0.2s_ease-in,_top_0.2s_ease-in_0.2s]"
+                ? "[translate:0_2px] [rotate:45deg] [transition:translate_0.1s_ease-in-out,_rotate_0.1s_ease-in-out_0.1s]"
+                : "[translate:0_-4px] [transition:rotate_0.1s_ease-in,_translate_0.1s_ease-in_0.1s]"
             }`}
           ></div>
           <div
-            className={`relative h-1 w-6 bg-black dark:bg-slate-200 ${
+            className={`h-1 w-6 bg-black dark:bg-slate-200 ${
               isMenuOpen
-                ? "-top-[2px] -rotate-45 [transition:top_0.2s_ease-in-out,_transform_0.2s_ease-in-out_0.2s]"
-                : "top-1 [transition:transform_0.2s_ease-in,_top_0.2s_ease-in_0.2s]"
+                ? "[translate:0_-2px] [rotate:-45deg] [transition:translate_0.1s_ease-in-out,_rotate_0.1s_ease-in-out_0.1s]"
+                : "[translate:0_4px] [transition:rotate_0.1s_ease-in,_translate_0.1s_ease-in_0.1s]"
             }`}
           ></div>
         </button>
