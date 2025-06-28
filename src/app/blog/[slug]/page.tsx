@@ -7,16 +7,18 @@ export const generateStaticParams = async () => {
   return blogMeta.map((blog) => ({ slug: blog.slug }));
 };
 
-export const generateMetadata = async ({
-  params,
-}: {
-  params: { slug: string };
-}) => {
+export const generateMetadata = async (
+  props: {
+    params: Promise<{ slug: string }>;
+  }
+) => {
+  const params = await props.params;
   const post = await getPostBySlug(params.slug);
   return { title: post?.meta.title };
 };
 
-const PostPage = async ({ params }: { params: { slug: string } }) => {
+const PostPage = async (props: { params: Promise<{ slug: string }> }) => {
+  const params = await props.params;
   const post = await getPostBySlug(params.slug);
 
   if (!post) {

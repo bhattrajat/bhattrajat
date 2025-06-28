@@ -5,7 +5,7 @@ import { mdxComponents } from "@/components/mdx";
 import rehypePrettyCode from "rehype-pretty-code";
 
 export type PostMeta = {
-  date: Date;
+  date: string;
   title: string;
 };
 
@@ -25,7 +25,11 @@ export async function getPostBySlug(slug: string) {
       },
       components: mdxComponents,
     });
-    return { meta: { ...frontmatter }, slug, content };
+    return {
+      meta: { ...frontmatter, date: new Date(frontmatter.date) },
+      slug,
+      content,
+    };
   } catch (error) {
     console.log(error);
     return undefined;
