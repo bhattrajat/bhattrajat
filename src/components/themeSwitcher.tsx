@@ -1,5 +1,11 @@
 import { FiSun, FiMoon, FiMonitor } from "react-icons/fi";
-import { Listbox } from "@headlessui/react";
+import {
+  Label,
+  Listbox,
+  ListboxButton,
+  ListboxOption,
+  ListboxOptions,
+} from "@headlessui/react";
 import { useTheme } from "next-themes";
 import { Fragment, useEffect, useState } from "react";
 
@@ -39,13 +45,13 @@ export function ThemeSwitcher() {
   return (
     <div className="relative flex flex-col md:order-1 md:ml-2">
       <Listbox value={theme} onChange={setTheme}>
-        <Listbox.Label className="sr-only">Theme</Listbox.Label>
-        <Listbox.Button type="button">
+        <Label className="sr-only">Theme</Label>
+        <ListboxButton type="button">
           {Component && <Component className="flex h-6 w-6 items-center" />}
-        </Listbox.Button>
-        <Listbox.Options className="dark:highlight-white/5 absolute right-0 top-full w-36 overflow-hidden rounded-lg bg-white py-1 text-sm font-semibold text-slate-700 shadow-lg ring-1 ring-slate-900/10 dark:bg-slate-800 dark:text-slate-300 dark:ring-0">
+        </ListboxButton>
+        <ListboxOptions className="dark:highlight-white/5 absolute right-0 top-full w-36 overflow-hidden rounded-lg bg-white py-1 text-sm font-semibold text-slate-700 shadow-lg ring-1 ring-slate-900/10 dark:bg-slate-800 dark:text-slate-300 dark:ring-0">
           {settings.map(({ value, label, icon: Icon }) => (
-            <Listbox.Option key={value} value={value} as={Fragment}>
+            <ListboxOption key={value} value={value} as={Fragment}>
               {({ active, selected }) => (
                 <li
                   className={`
@@ -57,13 +63,13 @@ export function ThemeSwitcher() {
                   }
                 `}
                 >
-                  <Icon selected={selected} className="mr-2 h-6 w-6" />
+                  <Icon className="mr-2 h-6 w-6" />
                   {label}
                 </li>
               )}
-            </Listbox.Option>
+            </ListboxOption>
           ))}
-        </Listbox.Options>
+        </ListboxOptions>
       </Listbox>
     </div>
   );
