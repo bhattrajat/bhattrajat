@@ -58,15 +58,15 @@ export function Header() {
           <div
             className={`h-1 w-6 bg-black dark:bg-slate-200 ${
               isMenuOpen
-                ? "[rotate:45deg] [transition:translate_0.1s_ease-in-out,_rotate_0.1s_ease-in-out_0.1s] [translate:0_2px]"
-                : "[transition:rotate_0.1s_ease-in,_translate_0.1s_ease-in_0.1s] [translate:0_-4px]"
+                ? "rotate-45 [transition:translate_0.1s_ease-in-out,rotate_0.1s_ease-in-out_0.1s] [translate:0_2px]"
+                : "[transition:rotate_0.1s_ease-in,translate_0.1s_ease-in_0.1s] [translate:0_-4px]"
             }`}
           ></div>
           <div
             className={`h-1 w-6 bg-black dark:bg-slate-200 ${
               isMenuOpen
-                ? "[transition:translate_0.1s_ease-in-out,_rotate_0.1s_ease-in-out_0.1s] [rotate:-45deg] [translate:0_-2px]"
-                : "[transition:rotate_0.1s_ease-in,_translate_0.1s_ease-in_0.1s] [translate:0_4px]"
+                ? "[transition:translate_0.1s_ease-in-out,rotate_0.1s_ease-in-out_0.1s] -rotate-45 [translate:0_-2px]"
+                : "[transition:rotate_0.1s_ease-in,translate_0.1s_ease-in_0.1s] [translate:0_4px]"
             }`}
           ></div>
         </button>
