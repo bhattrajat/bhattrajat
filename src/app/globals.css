@@ -1,5 +1,6 @@
 @import "tailwindcss";
 @plugin "@tailwindcss/forms";
+@plugin "@tailwindcss/typography";
 :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
@@ -12,4 +13,13 @@
     --background-start-rgb: 0, 0, 0;
     --background-end-rgb: 0, 0, 0;
   }
+}
+
+pre {
+  overflow-x: auto;
+  padding: 1rem 0;
+}
+
+pre [data-line] {
+  padding: 0 1rem;
 }
