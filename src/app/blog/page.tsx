@@ -1,21 +1,32 @@
 import Link from "next/link";
 import { compareDesc, format } from "date-fns";
 import { getAllPostMeta } from "@/lib/mdx";
+import { unstable_ViewTransition as ViewTransition } from "react";
 
-function PostCard(post: { date: Date; title: string; url: string }) {
+function PostCard(post: {
+  date: Date;
+  title: string;
+  url: string;
+  slug: string;
+}) {
   return (
     <div className="mb-8">
       <h3 className="text-lg">
-        <Link href={post.url} className="dark:hover:text-slate-300">
-          {post.title}
-        </Link>
+        <ViewTransition name={post.slug}>
+          <Link href={post.url} className="dark:hover:text-slate-300">
+            {post.title}
+          </Link>
+        </ViewTransition>
       </h3>
-      <time
-        dateTime={post.date.toISOString()}
-        className="mb-2 block text-sm dark:text-slate-400"
-      >
-        {format(post.date, "LLLL d, yyyy")}
-      </time>
+
+      <ViewTransition name={`date-${post.slug}`}>
+        <time
+          dateTime={post.date.toISOString()}
+          className="mb-2 block text-sm dark:text-slate-400"
+        >
+          {format(post.date, "LLLL d, yyyy")}
+        </time>
+      </ViewTransition>
     </div>
   );
 }
@@ -37,6 +48,7 @@ export default async function Home() {
           date={post.date!}
           title={post.title!}
           url={post.url!}
+          slug={post.slug}
         />
       ))}
     </div>
