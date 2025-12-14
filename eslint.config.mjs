@@ -1,4 +1,5 @@
 import { defineConfig } from "eslint/config";
+import nextCoreWebVitals from "eslint-config-next/core-web-vitals";
 import { fixupConfigRules, fixupPluginRules } from "@eslint/compat";
 import typescriptEslint from "@typescript-eslint/eslint-plugin";
 import react from "eslint-plugin-react";
