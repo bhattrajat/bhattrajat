@@ -1,7 +1,7 @@
 import { getAllPostMeta, getPostBySlug } from "@/lib/mdx";
 import { format } from "date-fns";
 import { notFound } from "next/navigation";
-import { unstable_ViewTransition as ViewTransition } from "react";
+import { ViewTransition } from "react";
 
 export const generateStaticParams = async () => {
   const blogMeta = await getAllPostMeta();

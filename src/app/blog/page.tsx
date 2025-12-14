@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { compareDesc, format } from "date-fns";
 import { getAllPostMeta } from "@/lib/mdx";
-import { unstable_ViewTransition as ViewTransition } from "react";
+import { ViewTransition } from "react";
 
 function PostCard(post: {
   date: Date;
